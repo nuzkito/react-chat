@@ -3,7 +3,11 @@ var ChatBox = React.createClass({
 
   render: function () {
     return (
-      <div>ChatBox</div>
+      <div className="chat-box">
+        <h1 className="title">Chat con ReactJS</h1>
+        <MessageList />
+        <ChatForm />
+      </div>
     );
   },
 
@@ -14,7 +18,11 @@ var ChatForm = React.createClass({
 
   render: function () {
     return (
-      <div>ChatForm</div>
+      <form className="chat-form">
+        <input className="input username-input" type="text" placeholder="Nombre de usuario" />
+        <input className="input body-input" type="text" placeholder="¡Escribe algo! :D" />
+        <button className="button">Enviar</button>
+      </form>
     );
   },
 
@@ -25,7 +33,11 @@ var MessageList = React.createClass({
 
   render: function () {
     return (
-      <div>MessageList</div>
+      <ul className="message-list">
+        <Message />
+        <Message />
+        <Message />
+      </ul>
     );
   },
 
@@ -36,7 +48,7 @@ var Message = React.createClass({
 
   render: function () {
     return (
-      <div>Message</div>
+      <li className="message"><strong>Usuario:</strong> Mensaje <TimeAgo>hace dos minutos</TimeAgo></li>
     );
   },
 
@@ -47,8 +59,12 @@ var TimeAgo = React.createClass({
 
   render: function () {
     return (
-      <div>TimeAgo</div>
+      <small className="time-ago">hace dos minutos</small>
     );
   }
 
 });
+
+
+// Iniciar chat
+React.render(<ChatBox />, document.getElementById('chat'));
