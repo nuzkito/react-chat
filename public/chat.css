@@ -1,0 +1,81 @@
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Título */
+.title {
+  background-color: #333333;
+  margin: 0;
+  color: white;
+  padding: 8px;
+  font-weight: normal;
+  flex-shrink: 0;
+}
+
+/* Lista de mensajes */
+.message-list {
+  flex-grow: 1;
+  padding: 0;
+  list-style-type: none;
+  overflow: auto;
+  margin: 0;
+}
+
+.message {
+  padding: .3em .8em;
+}
+
+.time-ago {
+  font-style: italic;
+  color: #888;
+}
+
+.time-ago:before {
+  content: '- ';
+}
+
+/* Formulario para enviar nuevos mensajes */
+.chat-form {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.username-input {
+  background-color: #ddd;
+}
+
+.body-input {
+  background-color: #eee;
+  flex-grow: 1;
+}
+
+.input {
+  padding: .5em .8em;
+  font-size: 18px;
+  border-width: 0;
+}
+
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-width: 0;
+  padding: .5em 2em;
+  font-size: 18px;
+  background-color: #008CBA;
+  color: #FFFFFF;
+  transition: background-color 300ms ease-out;
+  flex-shrink: 0;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #007095;
+}
+
+.input:focus,
+.button:focus {
+  outline: none;
+}
