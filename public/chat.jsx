@@ -2,10 +2,32 @@
 var ChatBox = React.createClass({
 
   render: function () {
+
+    var messageList = [
+      {
+        id: 1,
+        username: 'Usuario',
+        body: 'Contenido del mensaje',
+        time: new Date(),
+      },
+      {
+        id: 2,
+        username: 'Usuario',
+        body: 'Contenido del mensaje',
+        time: new Date(),
+      },
+      {
+        id: 3,
+        username: 'Usuario',
+        body: 'Contenido del mensaje',
+        time: new Date(),
+      },
+    ];
+
     return (
       <div className="chat-box">
         <h1 className="title">Chat con ReactJS</h1>
-        <MessageList />
+        <MessageList messageList={messageList} />
         <ChatForm />
       </div>
     );
@@ -32,11 +54,15 @@ var ChatForm = React.createClass({
 var MessageList = React.createClass({
 
   render: function () {
+    var messageList = this.props.messageList.map(function (message) {
+      return (
+        <Message name={message.username} time={message.time}>{message.body}</Message>
+      );
+    });
+
     return (
       <ul className="message-list">
-        <Message />
-        <Message />
-        <Message />
+        {messageList}
       </ul>
     );
   },
@@ -48,7 +74,7 @@ var Message = React.createClass({
 
   render: function () {
     return (
-      <li className="message"><strong>Usuario:</strong> Mensaje <TimeAgo>hace dos minutos</TimeAgo></li>
+      <li className="message"><strong>{this.props.name}:</strong> {this.props.children} <TimeAgo>{this.props.time}</TimeAgo></li>
     );
   },
 
@@ -59,7 +85,7 @@ var TimeAgo = React.createClass({
 
   render: function () {
     return (
-      <small className="time-ago">hace dos minutos</small>
+      <small className="time-ago">{moment(this.props.children).fromNow()}</small>
     );
   }
 
