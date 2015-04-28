@@ -104,6 +104,10 @@ var MessageList = React.createClass({
 // Cada mensaje individual
 var Message = React.createClass({
 
+  componentDidMount: function () {
+    this.getDOMNode().scrollIntoView();
+  },
+
   render: function () {
     return (
       <li className="message"><strong>{this.props.name}:</strong> {this.props.children} <TimeAgo>{this.props.time}</TimeAgo></li>
