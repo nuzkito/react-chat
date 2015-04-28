@@ -13,26 +13,7 @@ var ChatBox = React.createClass({
 
   getInitialState: function () {
     return {
-      messageList: [
-        {
-          id: 1,
-          username: 'Usuario',
-          body: 'Contenido del mensaje',
-          time: new Date(),
-        },
-        {
-          id: 2,
-          username: 'Usuario',
-          body: 'Contenido del mensaje',
-          time: new Date(),
-        },
-        {
-          id: 3,
-          username: 'Usuario',
-          body: 'Contenido del mensaje',
-          time: new Date(),
-        },
-      ],
+      messageList: [],
     }
   },
 
