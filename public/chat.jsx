@@ -37,7 +37,18 @@ var ChatBox = React.createClass({
   },
 
   handleMessageSubmit: function (message) {
+    socket.emit('message', message);
     this.addNewMessage(message);
+  },
+
+  componentDidMount: function () {
+    socket.once('messages', function (messages) {
+      this.setState({ messageList: messages });
+    }.bind(this));
+
+    socket.on('message', function (message) {
+      this.addNewMessage(message);
+    }.bind(this));
   },
 
   addNewMessage: function (message) {
